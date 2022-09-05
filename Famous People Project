@@ -1,0 +1,43 @@
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY, name TEXT, gender TEXT, alive TEXT, movie TEXT);
+CREATE TABLE Hollywood (id INTEGER PRIMARY KEY, name TEXT, acting TEXT, tv TEXT);
+
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Paul Walker", "male", "deceased", "Too Fast Too Furious");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Bill Murray", "male", "living", "Caddy Shack");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Eva Mendes", "female", "living", "Too Fast Too Furious");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Steve Martin", "male", "living", "Three Amigos");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Emma Stone", "female", "living", "Easy A");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Channing Tatum", "male", "living", "21 Jump Street");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Jonah Hill", "male", "living", "21 Jump Street");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Vin Diesel", "male", "living", "Too Fast Too Furious");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Rodney Dangerfield", "male", "deceased", "Caddy Shack");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Martin Short", "male", "living", "Three Amigos");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Chevy Chase", "male", "living", "Three Amigos");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Robert Downey Jr", "male", "living", "Kiss Kiss Bnag Bang");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Val Kilmer", "male", "living", "Kiss Kiss Bang Bang");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Nicole Kiddman", "female", "living", "Batman Returns");
+INSERT INTO movie_stars (name, gender, alive, movie) VALUES ("Ludacris", "male", "living", "Too_FastToo_Furious");
+
+
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Paul Walker", "no", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Bill Murray", "yes", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Eva Mendes", "yes", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Steve Martin", "yes", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Emma Stone", "yes", "no");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Channing Tatum", "yes", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Jonah Hill", "yes", "no");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Vin Diesel", "yes", "no");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Rodney Dangerfield", "no", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Martin Short", "yes", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Chevy Chase", "no", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Robert Downey Jr", "no", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Val Kilmer", "no", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Nicole Kiddman", "yes", "yes");
+INSERT INTO Hollywood (name, acting, tv) VALUES ("Ludacris", "no", "no");
+
+
+SELECT * FROM movie_stars WHERE gender="female";
+SELECT * FROM movie_stars WHERE gender="male" AND alive = "deceased";
+
+SELECT movie_stars.name, movie_stars.alive, Hollywood.tv 
+FROM movie_stars JOIN Hollywood
+ON movie_stars.name=Hollywood.name;
