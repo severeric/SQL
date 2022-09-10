@@ -1,3 +1,5 @@
+--Create a grocery store database
+
 CREATE TABLE store_front (id INTEGER PRIMARY KEY, product TEXT, price INTEGER, delivery_date INTEGER, color TEXT, size INTEGER, count INTEGER);
 
 INSERT INTO store_front VALUES ("game cube", 299.99, 10/01/2002, "purple", "regular", 3);
