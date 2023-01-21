@@ -1,0 +1,48 @@
+-How many employees hired 2003-2004?
+SELECT COUNT(*)
+FROM chinook.employees
+WHERE HireDate BETWEEN '2003-01-01' AND '2004-01-01';
+
+-Total sales by agent in ascending order?
+SELECT employees.FirstName, employees.LastName,
+ROUND(SUM(invoices.Total),2) as 'Total Sales' 
+FROM chinook.employees
+JOIN chinook.customers
+ON customers.SupportRepId = employees.EmployeeId
+JOIN chinook.invoices
+ON invoices.CustomerId = customers.CustomerId
+WHERE employees.Title ='Sales Support Agent'
+GROUP BY employees.FirstName
+ORDER BY (round(SUM(invoices.Total),2)) DESC LIMIT 3;
+
+-Country with the most invoices?
+SELECT invoices.InvoiceId, invoices.BillingCountry, invoices.Total,
+ROUND(SUM(invoices.Total),5) as 'Total Sales'
+FROM chinook.invoices
+GROUP BY invoices.Total
+ORDER BY (round(SUM(invoices.Total),5)) DESC LIMIT 5;
+
+-Which employees were hired first?
+SElECT * FROM chinook.employees
+ORDER BY HireDate DESC;
+
+-Longest songs sorted by artists?
+SELECT tracks.Name, tracks.Composer, tracks.Milliseconds FROM tracks
+ORDER BY tracks.Milliseconds ASC
+LIMIT 10;
+
+-Total sales sicne 2009?
+SELECT SUM(Total)
+FROM chinook.Invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2022-12-31';
+
+-Artists listed with album names.
+SELECT * FROM chinook.artists
+JOIN chinook.albums  
+ON artists.ArtistId = albums.ArtistId
+GROUP BY artists.Name;
+
+-Show customers not in the USA.
+SELECT * FROM chinook.customers
+WHERE NOT Country = "USA"
+ORDER BY Country ASC;
